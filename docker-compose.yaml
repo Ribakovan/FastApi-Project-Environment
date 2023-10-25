@@ -14,6 +14,8 @@ services:
       - .:/code
     networks:
       - backend
+    env_file:
+      - .env
 
   postgresql:
     container_name: postgresql
@@ -31,7 +33,7 @@ services:
     restart: unless-stopped
 
   pgadmin:
-    container_name: pg_admin
+    container_name: pgadmin
     image: dpage/pgadmin4
     depends_on:
       - postgresql
@@ -51,7 +53,7 @@ services:
 volumes:
   api:
   postgresql:
-  pg_admin:
+  pgadmin:
 
 
 networks:
